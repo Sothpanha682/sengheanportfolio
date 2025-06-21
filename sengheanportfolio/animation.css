@@ -1,0 +1,147 @@
+/* Typing Effect */
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  41.176% {
+    /* 3.5s typing / 8.5s total duration */
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Blinking Cursor Effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #7ebada; /* Primary color for cursor */
+  }
+}
+
+.typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid #7ebada; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 8.5s steps(40, end) infinite,
+    blink-caret 0.75s step-end infinite;
+}
+
+/* Fade In Up Effect */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Scale In Effect */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scale-in {
+  animation: scaleIn 0.8s ease-out forwards;
+}
+
+/* Float Up and Down Effect */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Background Glow Effect */
+@keyframes glow-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+body.animated-background {
+  background-size: 200% 200%; /* Larger background to allow movement */
+  transition: background-position 0.1s ease-out; /* Smooth movement */
+}
+
+.background-glow {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* Snow/Particle Animation */
+@keyframes snow {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(50px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  background-color: rgb(
+    126 186 218 / var(--tw-bg-opacity, 1)
+  ); /* Default for light mode */
+  border-radius: 50%;
+  filter: blur(0.5px); /* Soften the particles */
+  animation: snow linear infinite;
+  pointer-events: none; /* Ensure particles don't interfere with mouse events */
+}
+
+html.dark .particle {
+  background-color: rgba(100, 100, 100, 0.8); /* Darker for dark mode */
+}
+
+/* Float Up on Hover Effect */
+.float-on-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.float-on-hover:hover {
+  transform: translateY(-5px);
+}
