@@ -1149,16 +1149,9 @@
         );
       });
 
-      // Check for saved theme preference
-      if (
-        localStorage.getItem("theme") === "dark" ||
-        (!localStorage.getItem("theme") &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        html.classList.add("dark");
-      } else {
-        html.classList.remove("dark");
-      }
+      // Ensure light mode on load
+      html.classList.remove("dark");
+      localStorage.setItem("theme", "light");
 
       // Mobile menu toggle
       const mobileMenuButton = document.getElementById("mobile-menu-button");
